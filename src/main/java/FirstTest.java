@@ -11,7 +11,7 @@ public class FirstTest {
     public void check() {
         System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
         By country = By.xpath("//button[@data-qa-value='Україна']");
         By phoneNumber = By.xpath("//input[@data-qa-node='phone-number']");
@@ -33,7 +33,7 @@ public class FirstTest {
         driver.findElement(cvv).sendKeys("123");
         driver.findElement(cardRecieverName).sendKeys("Petro");
         driver.findElement(cardRecieverSurname).sendKeys("Petrov");
-        driver.findElement(sbmtBtn).sendKeys();
+        driver.findElement(sbmtBtn).click();
 
     }
 }
