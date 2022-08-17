@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -34,6 +35,18 @@ public class FirstTest {
         driver.findElement(cardRecieverName).sendKeys("Petro");
         driver.findElement(cardRecieverSurname).sendKeys("Petrov");
         driver.findElement(sbmtBtn).click();
+        
+        By actualPhoneNumber = By.xpath("//div[@data-qa-node='details']");
+        By actualCardFrom = By.xpath("//td[@data-qa-node='card']");
+By actualMobileOper = By.xpath("//span[@data-qa-node='nameB']");
+       By actualSum = By.xpath("//div[@data-qa-node='amount']");
+        
+        Assertions.assertEquals("Поповнення телефону. На номер +380635900684", driver.findElement(actualPhoneNumber).getText());
+        Assertions.assertEquals("4731 **** **** 6666", driver.findElement(actualCardFrom).getText());
+Assertions.assertEquals("Lifecell Ukraine", driver.findElement(actualMobileOper).getText());
+Assertions.assertEquals("150 UAH", driver.findElement(actualSum).getText());
+
+
 
     }
 }
